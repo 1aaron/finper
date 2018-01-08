@@ -1,0 +1,39 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FINPER</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center;">
+  <img src="assets/imgs/finper.jpg" class="logoImage"/> 
+  <ion-item>
+    <ion-label color="primary" stacked>Nombre de usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario" placeholder="Nombre de usuario"></ion-input>
+  </ion-item>
+  <ion-item>
+  <ion-label color="primary" stacked>País</ion-label> 
+    <ion-select [(ngModel)]="pais" interface="popover" (ionChange)="compareFn()" id="paisSelect">
+      <ion-option value="mx">México</ion-option>
+      <ion-option value="eu">Estados Unidos</ion-option>
+      <ion-option value="ca">Canadá</ion-option>
+      <ion-option value="ar">Argentina</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>Estado</ion-label>
+    <ion-select [(ngModel)]="estado" interface="popover">
+      <ion-option *ngFor="let estado of estados" [value]="estado">{{estado}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button round class="btnEnvio" (click)="validarDatos()">Comenzar</button>
+</ion-content>
