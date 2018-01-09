@@ -1,5 +1,17 @@
 // http://ionicframework.com/docs/theming/
 
+.ion-ios-saving,
+.ion-md-saving {
+    //content: url('../assets/imgs/savings.png');
+    width: 24px;
+    height: 24px;
+    //padding: 6px 4px 2px;
+    opacity: 0.9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../assets/imgs/savings.png');
+  }
 
 // App Global Sass
 // --------------------------------------------------

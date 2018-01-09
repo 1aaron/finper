@@ -8,9 +8,12 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-
+import { ComprasPage } from '../pages/compras/compras';
+import { AhorrosPage } from '../pages/ahorros/ahorros';
+ 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
+    AhorrosPage,
+    ComprasPage,
     LoginPage,
     TabsPage
   ],
@@ -35,7 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
           autoFocusAssist: false 
         }
       }
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,6 +49,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
+    AhorrosPage,
+    ComprasPage,
     LoginPage,
     TabsPage
   ],

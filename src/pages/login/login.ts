@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the LoginPage page.
  *
@@ -23,7 +24,7 @@ export class LoginPage {
   eu;
   ar;
   ca;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
     this.iniciarEstados();
   }  
   compareFn(){
@@ -54,11 +55,16 @@ export class LoginPage {
   }
 
   cambiarTabs(){
+
     this.navCtrl.setRoot(TabsPage);
   }
 
   validarDatos(){
     if(this.usuario != "" && this.estado != "" && this.pais != ""){
+      this.storage.set("usuario",this.usuario);
+      this.storage.set("estado",this.estado);
+      this.storage.set("pais",this.pais);
+      
       this.cambiarTabs();
     }else{
       alert("Llena los campos");
