@@ -22,4 +22,24 @@ export class PaisesModel{
 "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis",
 "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
 "Tucumán"];
+    getEstados(pais: String){
+        let estados;
+        switch (pais) {
+            case "mx":
+                estados = this.mx;
+                break;
+            case "eu":
+                estados = this.eu;
+                break;
+            case "ar":
+                estados = this.eu;
+                break;
+            case "ca":
+                estados = this.ca;
+                break;    
+            default:
+                break;
+        }
+        return estados;
+    }
 }

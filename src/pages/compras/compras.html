@@ -7,12 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>compras</ion-title>
+    <ion-title>Compras</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item (click)="inflarModal(0)"><h2>Pizzas</h2><p>Buscar pizzerias cerca</p></ion-item>
+    <ion-item (click)="inflarModal(1)"><h2>Super Mercados</h2><p>Buscar supermercados cerca  </p></ion-item>
+    <ion-item (click)="inflarModal(2)"><h2>Gasolineras</h2><p>Buscar gasolinerías cerca</p></ion-item>
+  </ion-list>
 </ion-content>

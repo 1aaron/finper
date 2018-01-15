@@ -19,13 +19,27 @@ export class LoginPage {
   estados;
   estado = "";
   usuario = "";
+  contra = "";
 
   mx;
   eu;
   ar;
   ca;
+  borrado = 0;
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
     this.iniciarEstados();
+    let dia = new Date().getDay();
+    this.storage.get('borrado').then((val) => {
+      if(val != null){
+        this.borrado = val;
+      }
+    });
+    if(dia > 0 && this.borrado == 0){
+      this.storage.set("gasto",0);
+      this.storage.set("ahorro",0);
+      //TODO: usar bd para controlar las semanas 
+      this.storage.set('borrado',1);
+    }
   }  
   compareFn(){
     switch (this.pais) {
@@ -60,10 +74,11 @@ export class LoginPage {
   }
 
   validarDatos(){
-    if(this.usuario != "" && this.estado != "" && this.pais != ""){
+    if(this.usuario != "" && this.estado != "" && this.pais != "" && this.contra != ""){
       this.storage.set("usuario",this.usuario);
       this.storage.set("estado",this.estado);
       this.storage.set("pais",this.pais);
+      this.storage.set("password",this.contra);
       
       this.cambiarTabs();
     }else{

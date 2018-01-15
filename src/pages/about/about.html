@@ -7,5 +7,27 @@
 </ion-header>
 
 <ion-content padding style="text-align: center;">
-  <img alt="usuario" id="imgUsuario" src="assets/imgs/placeholder.jpg"/>
+  <img alt="usuario" (click)="getPicture()" id="imgUsuario" [src]="image"/>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Estado</ion-label>
+      <ion-select [(ngModel)]="estado" interface="popover">
+        <ion-option *ngFor="let estado of estados" [value]="estado">{{estado}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Idioma</ion-label>
+      <ion-select [(ngModel)]="idioma" interface="popover" id="paisSelect">
+        <ion-option value="es" checked>Español</ion-option>
+        <ion-option value="en">Inglés</ion-option>
+        <ion-option value="fr">Francés</ion-option>
+        <ion-option value="ch">Chino Mandarín</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="btnGuardar()">Guardar</button>
 </ion-content>

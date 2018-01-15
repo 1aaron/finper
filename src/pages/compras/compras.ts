@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { MapaPage } from '../mapa/mapa';
 /**
  * Generated class for the ComprasPage page.
  *
@@ -14,11 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ComprasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ComprasPage');
   }
+  inflarModal(opcion: Number){
+    this.navCtrl.push(MapaPage,{ opcion: opcion });
+  //   let profileModal = this.modalCtrl.create(MapaPage, { opcion: opcion });
+  //  profileModal.present();
+  }
 
 }
+

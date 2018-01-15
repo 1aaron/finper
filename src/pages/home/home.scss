@@ -1,3 +1,43 @@
 page-home {
-
+    .slidesHome{
+        height: 33.3333333%;
+    }
+    .slideImage{
+        background-repeat: no-repeat; 
+        background-size: contain; 
+        background-position: center;
+    }
+    p {
+        font-size: 0.8em;
+    }
+    .slideImage  p{
+        background-color: rgba(255,255,255,0.5)
+    }
+    #tip1{
+        background-image: url('../assets/imgs/ahorro1.png');       
+    }
+    #tip2{
+        background-image: url('../assets/imgs/ahorro2.png');       
+    }
+    #tip3{
+        background-image: url('../assets/imgs/ahorro3.png');       
+    }
+    #promo1{
+        background-image: url("../assets/imgs/promo1.png");
+    }
+    #promo2{
+        background-image: url("../assets/imgs/promo2.png");
+    }
+    #promo3{
+        background-image: url("../assets/imgs/promo3.png");
+    }
+    #prod1{
+        background-image: url("../assets/imgs/prod1.png");
+    }
+    #prod2{
+        background-image: url("../assets/imgs/prod2.png");
+    }
+    #prod3{
+        background-image: url("../assets/imgs/prod3.png");
+    }
 }

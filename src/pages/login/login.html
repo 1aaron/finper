@@ -20,6 +20,10 @@
     <ion-input type="text" [(ngModel)]="usuario" placeholder="Nombre de usuario"></ion-input>
   </ion-item>
   <ion-item>
+    <ion-label color="primary" stacked>Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="contra" placeholder="contraseña"></ion-input>
+  </ion-item>
+  <ion-item>
   <ion-label color="primary" stacked>País</ion-label> 
     <ion-select [(ngModel)]="pais" interface="popover" (ionChange)="compareFn()" id="paisSelect">
       <ion-option value="mx">México</ion-option>

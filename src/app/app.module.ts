@@ -10,10 +10,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ComprasPage } from '../pages/compras/compras';
 import { AhorrosPage } from '../pages/ahorros/ahorros';
+import { MapaPage } from '../pages/mapa/mapa';
  
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { Toast } from '@ionic-native/toast';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AboutPage,
     ContactPage,
     HomePage,
+    MapaPage,
     AhorrosPage,
     ComprasPage,
     LoginPage,
@@ -49,6 +53,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AboutPage,
     ContactPage,
     HomePage,
+    MapaPage,
     AhorrosPage,
     ComprasPage,
     LoginPage,
@@ -56,7 +61,9 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
+    Toast,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

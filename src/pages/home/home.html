@@ -4,14 +4,38 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-slides class="slidesHome">
+    <ion-slide class="slideImage" id="tip1">
+    </ion-slide>
+    <ion-slide  class="slideImage" id="tip2">
+    </ion-slide>
+    <ion-slide  class="slideImage" id="tip3">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides class="slidesHome">
+    <ion-slide  class="slideImage" id="promo1">
+        <p> Anillo Periferico 301, Locales 101-103, Valle Dorado, 28017 Colima, Col.</p>
+    </ion-slide>
+    <ion-slide  class="slideImage" id="promo2">
+      <p>Av. Felipe Sevilla del Río, No. 700, Colonia Jardines de las Lomas, Colima., Jardines de las Lomas, 28014 Colima, Col.</p>
+    </ion-slide>
+    <ion-slide  class="slideImage" id="promo3">
+      <p>Felipe Sevilla del Río 351, Jardines Vista Hermosa III, 28017 Colima, Col.</p>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides class="slidesHome">
+    <a href="http://www.adidas.mx/on/demandware.store/Sites-adidas-MX-Site/es_MX/Home-Show">
+      <ion-slide   class="slideImage" id="prod1"></ion-slide>
+    </a>
+    <a href="https://www.bestbuy.com/">
+      <ion-slide   class="slideImage" id="prod2"></ion-slide>
+    </a>
+    <a href="http://www.dominos.com.mx/">
+      <ion-slide   class="slideImage" id="prod3"></ion-slide>
+    </a>
+  </ion-slides>
+
 </ion-content>

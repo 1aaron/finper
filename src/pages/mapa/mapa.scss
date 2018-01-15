@@ -1,0 +1,21 @@
+page-mapa {
+    .mapa{
+        width: 100%;
+        height: 100%;
+       background-size: contain;
+       background-repeat: no-repeat;
+        background-position: center;
+    }
+    #gas{
+       background-image: url('../assets/imgs/gas.png');
+       display: block;
+    }
+    #super{
+       background-image: url('../assets/imgs/super.png');       
+       display: block; 
+    }
+    #pizza{
+       background-image: url('../assets/imgs/pizza.png');   
+       display: block;     
+    }
+}
