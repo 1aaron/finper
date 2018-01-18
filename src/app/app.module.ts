@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { ComprasPage } from '../pages/compras/compras';
 import { AhorrosPage } from '../pages/ahorros/ahorros';
 import { MapaPage } from '../pages/mapa/mapa';
+import { modalGastos } from '../pages/mapa/mapa';
  
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { Camera } from '@ionic-native/camera';
     AhorrosPage,
     ComprasPage,
     LoginPage,
-    TabsPage
+    TabsPage, 
+    modalGastos
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { Camera } from '@ionic-native/camera';
     AboutPage,
     ContactPage,
     HomePage,
+    modalGastos,
     MapaPage,
     AhorrosPage,
     ComprasPage,

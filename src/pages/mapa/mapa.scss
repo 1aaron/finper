@@ -18,4 +18,19 @@ page-mapa {
        background-image: url('../assets/imgs/pizza.png');   
        display: block;     
     }
+    #btnAgregarGasto{
+        position: fixed;
+        right: 10%;
+        bottom: 12%;
+        width: 3.5em;
+        height: 3.5em;
+        background-color: black;
+        border-radius: 100%;
+        z-index: 50;
+        background-image: url("../assets/imgs/add.png");
+        background-size: 80%;
+        box-shadow: 2px 2px 2px 2px #888888;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }

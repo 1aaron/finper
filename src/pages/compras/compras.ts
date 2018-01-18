@@ -17,6 +17,7 @@ export class ComprasPage {
   constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ComprasPage');
   }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the MapaPage page.
@@ -14,7 +16,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class MapaPage {
   opcion;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
     let opcion = navParams.get("opcion");
     console.log(opcion);
     this.opcion = opcion;
@@ -42,5 +44,54 @@ export class MapaPage {
         break;
     }
   }
+  agregarCompra(){
+    let modal= this.modalCtrl.create(modalGastos,{tipo:this.opcion});
+    modal.present();
+  }
+}
 
+@Component({
+  selector: "modal-gastos",
+  templateUrl: "modalGastos.html"
+})
+export class modalGastos {
+  tipoCompra;
+  titulo;
+  monto;
+
+ constructor(private storage: Storage, params: NavParams,private viewCtrl: ViewController) {
+   this.tipoCompra =  params.get('tipo');
+   switch (this.tipoCompra) {
+     case 0:
+      this.titulo = "Pizza";
+      break;
+     case 1:
+     this.titulo = "Super"
+      break;
+     case 2:
+     this.titulo = "Gasolinera"
+      break;
+     default:
+      break;
+   }
+ }
+
+ guardar(){
+  this.storage.get('gastos').then((val) => {
+    if(val != null){
+      let value = val + "\n" + this.titulo + " $" + this.monto;
+      console.log("valor" + value);
+      this.storage.set("gastos",value);
+    }else{
+      let value = this.titulo + " $" + this.monto;
+      console.log("valor" + value);
+      this.storage.set("gastos",value);
+    }
+  });
+  this.dismiss();
+ }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }
