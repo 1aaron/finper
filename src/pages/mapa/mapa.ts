@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Storage } from '@ionic/storage';
+import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 /**
  * Generated class for the MapaPage page.
@@ -16,7 +18,7 @@ import { Storage } from '@ionic/storage';
 })
 export class MapaPage {
   opcion;
-  constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor( private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
     let opcion = navParams.get("opcion");
     console.log(opcion);
     this.opcion = opcion;
@@ -58,8 +60,10 @@ export class modalGastos {
   tipoCompra;
   titulo;
   monto;
+  descuento = '0';
+  compras: any[] = [];
 
- constructor(private storage: Storage, params: NavParams,private viewCtrl: ViewController) {
+ constructor(private databaseProvider: DatabaseServiceProvider, private storage: Storage, params: NavParams,private viewCtrl: ViewController) {
    this.tipoCompra =  params.get('tipo');
    switch (this.tipoCompra) {
      case 0:
@@ -77,21 +81,25 @@ export class modalGastos {
  }
 
  guardar(){
-  this.storage.get('gastos').then((val) => {
-    if(val != null){
-      let value = val + "\n" + this.titulo + " $" + this.monto;
-      console.log("valor" + value);
-      this.storage.set("gastos",value);
-    }else{
-      let value = this.titulo + " $" + this.monto;
-      console.log("valor" + value);
-      this.storage.set("gastos",value);
-    }
-  });
-  this.dismiss();
+  this.compras['monto'] = this.monto;
+  this.compras['tipo'] = this.tipoCompra;
+  //save date of today
+  let date = new Date();
+  this.compras['fecha'] = date.getDate() + "/" +(date.getMonth() + 1) + "/"+date.getFullYear();   
+  this.compras['descuento'] = this.descuento;  
+  //insert purchases on database 
+  this.databaseProvider.insertCompra(this.compras);
+
+  // let misCompras = this.databaseProvider.getAllPurchases();
+  // misCompras.then((miCompra: any[]) => {
+  //   for(let index = 0; index < miCompra.length;index++){
+  //     console.log(miCompra[index].id +" "+ miCompra[index].monto+" "+ miCompra[index].fecha+" " + miCompra[index].tipo +" "+ miCompra[index].descuento)
+  //   }
+  // })
+  this.viewCtrl.dismiss();
  }
 
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
+  // dismiss() {
+  //   this.viewCtrl.dismiss();
+  // }
 }

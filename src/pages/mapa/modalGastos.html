@@ -18,6 +18,10 @@
         <ion-label floating>Ingresa monto</ion-label>
         <ion-input type="number" [(ngModel)]="monto" id="monto"></ion-input>
         </ion-item>
+        <ion-item>
+            <ion-label floating>Ingresa descuento (%) si lo hay</ion-label>
+            <ion-input type="number" [(ngModel)]="descuento" id="descuento"></ion-input>
+        </ion-item>
     </ion-list>
     <button ion-button round (click)="guardar()">Agregar</button>
 </ion-content>

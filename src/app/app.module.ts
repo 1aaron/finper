@@ -19,6 +19,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Toast } from '@ionic-native/toast';
 import { Camera } from '@ionic-native/camera';
 
+import { SQLite } from '@ionic-native/sqlite';
+import { DatabaseServiceProvider } from '../providers/database-service/database-service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -65,9 +68,11 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     Camera,
+    SQLite,
     SplashScreen,
     Toast,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseServiceProvider
   ]
 })
 export class AppModule {}
