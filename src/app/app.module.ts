@@ -26,6 +26,8 @@ import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 import { DatabaseServiceProvider } from '../providers/database-service/database-service';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     MyApp,
@@ -44,6 +46,8 @@ import { DatabaseServiceProvider } from '../providers/database-service/database-
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NgxChartsModule,
     IonicModule.forRoot(MyApp, {
       //quitar el scroll para el teclado
       platforms : {

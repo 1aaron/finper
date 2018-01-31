@@ -22,12 +22,14 @@ export class TabTodoPage {
   gastadoS = "0";
   ahorradoS = "0";
   totalS = "0";
+  view = [400,300];
+  data: any[] = [];
+  
 
   constructor(private databaseProvider: DatabaseServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabTodoPage');
+  ionViewWillLoad(){
     let misCompras = this.databaseProvider.getAllPurchases();
     misCompras.then((miCompra: any[]) => {
       for(let index = 0; index < miCompra.length;index++){
@@ -41,11 +43,18 @@ export class TabTodoPage {
         }
         //console.log(miCompra[index].id +" "+ miCompra[index].monto+" "+ miCompra[index].fecha+" " + miCompra[index].tipo +" "+ miCompra[index].descuento)
       }
+      let mData = [{'name': 'Gastado','value' : this.gastado},{'name': 'Ahorrado','value' : this.ahorrado}]
+      this.data = mData;     
       this.total = this.gastado - this.ahorrado;
       this.totalS = this.total.toFixed(2);
       this.ahorradoS =this.ahorrado.toFixed(2);
       this.gastadoS = this.gastado.toFixed(2);
     });
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TabTodoPage');
+    
   }
 
 }
