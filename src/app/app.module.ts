@@ -12,6 +12,10 @@ import { ComprasPage } from '../pages/compras/compras';
 import { AhorrosPage } from '../pages/ahorros/ahorros';
 import { MapaPage } from '../pages/mapa/mapa';
 import { modalGastos } from '../pages/mapa/mapa';
+
+import { TabAhorrosPage } from '../pages/tab-ahorros/tab-ahorros';
+import { TabGastosPage } from '../pages/tab-gastos/tab-gastos';
+import { TabTodoPage } from '../pages/tab-todo/tab-todo';
  
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,6 +33,9 @@ import { DatabaseServiceProvider } from '../providers/database-service/database-
     ContactPage,
     HomePage,
     MapaPage,
+    TabAhorrosPage,
+    TabGastosPage,
+    TabTodoPage,
     AhorrosPage,
     ComprasPage,
     LoginPage,
@@ -60,6 +67,9 @@ import { DatabaseServiceProvider } from '../providers/database-service/database-
     HomePage,
     modalGastos,
     MapaPage,
+    TabAhorrosPage,
+    TabGastosPage,
+    TabTodoPage,
     AhorrosPage,
     ComprasPage,
     LoginPage,

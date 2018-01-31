@@ -1,0 +1,14 @@
+<ion-content padding>
+  <ion-list>
+    <ion-card ion-item *ngFor="let item of gastos">
+      <ion-card-content style="text-align: center">
+        <span class="izq">{{item.fecha}}</span><span class="cen">{{item.tipo}}</span> <span class="der">${{item.monto.toFixed(2)}}</span> 
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-card>
+    <ion-card-content style="text-align: center">
+      <span class="izq">Total: </span><span class="der">${{totalS}}</span> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>

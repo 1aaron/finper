@@ -82,7 +82,7 @@ export class modalGastos {
 
  guardar(){
   this.compras['monto'] = this.monto;
-  this.compras['tipo'] = this.tipoCompra;
+  this.compras['tipo'] = this.titulo;
   //save date of today
   let date = new Date();
   this.compras['fecha'] = date.getDate() + "/" +(date.getMonth() + 1) + "/"+date.getFullYear();   
