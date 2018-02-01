@@ -25,6 +25,12 @@ export class DatabaseServiceProvider {
     let sql = "CREATE TABLE IF NOT EXISTS compras(id INTEGER PRIMARY KEY AUTOINCREMENT, monto INTEGER, fecha TEXT, tipo INTEGER, descuento TEXT)";
     return this.db.executeSql(sql,[]);
   }
+  erraseDB(){
+    let sql = "DROP TABLE compras";
+    this.db.executeSql(sql,[]).then(response => {
+      return this.createTable();
+    });
+  }
   getAllPurchases(){
     let sql = "SELECT * FROM compras";
     return this.db.executeSql(sql,[])

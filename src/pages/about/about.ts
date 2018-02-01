@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { Toast } from '@ionic-native/toast';
 import { Platform } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
+
 
 @Component({
   selector: 'page-about',
@@ -18,7 +20,7 @@ export class AboutPage {
   idioma;
   image : string = "assets/imgs/placeholder.jpg";
   
-  constructor(private camera: Camera, private plt: Platform, private toast: Toast, private storage: Storage, public navCtrl: NavController) {
+  constructor(private databaseProvider: DatabaseServiceProvider, private camera: Camera, private plt: Platform, private toast: Toast, private storage: Storage, public navCtrl: NavController) {
     let paisesModel = new PaisesModel();
     this.storage.get('idioma').then((val) => {
       if(val != null){
@@ -50,6 +52,11 @@ export class AboutPage {
     this.storage.get('estado').then((val) => {
       this.estado = val;
     });
+  }
+
+  erraseDatabase(){
+    let misCompras = this.databaseProvider.erraseDB();
+    console.log(misCompras);
   }
 
   btnGuardar(){

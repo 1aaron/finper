@@ -18,9 +18,17 @@ export class TabGastosPage {
   totalS = "0";
   gastos = [];
   constructor(private databaseProvider: DatabaseServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+    console.log('tab-gastos constructor');
   }
 
-  ionViewDidLoad() {
+  inicializarDatos(){
+    this.total = 0;
+    this.totalS = "0";
+    this.gastos = [];
+  }
+  ionViewDidEnter(){
+    console.log("gastos enter");
+    this.inicializarDatos();
     let misCompras = this.databaseProvider.getAllPurchases();
     misCompras.then((miCompra: any[]) => {
       for(let index = 0; index < miCompra.length;index++){
@@ -31,6 +39,11 @@ export class TabGastosPage {
       }
       this.totalS = this.total.toFixed(2);
     });
+  }
+
+  ionViewDidLoad() {
+    console.log('tab-gastos loaded');
+    
   }
 
 }

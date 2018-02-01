@@ -19,10 +19,16 @@ export class TabAhorrosPage {
   totalS = "0";
   ahorros = [];
   constructor(private databaseProvider: DatabaseServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+    console.log('tab-ahorros constructor');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabAhorrosPage');
+  inicializarDatos(){
+    this.total = 0;
+    this.totalS = "0";
+    this.ahorros = [];
+  }
+  ionViewDidEnter(){
+    console.log("ahorro enter");
+    this.inicializarDatos();
     let misCompras = this.databaseProvider.getAllPurchases();
     misCompras.then((miCompra: any[]) => {
       for(let index = 0; index < miCompra.length;index++){
@@ -40,6 +46,11 @@ export class TabAhorrosPage {
       }
       this.totalS = this.total.toFixed(2);
     });
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TabAhorrosPage');
+    
   }
 
 }

@@ -1,4 +1,9 @@
 <ion-content padding>
+  <ion-card>
+    <ion-card-content style="text-align: center">
+      <span class="izq">Total: </span><span class="der">${{totalS}}</span> 
+    </ion-card-content>
+  </ion-card>
   <ion-list>
     <ion-card ion-item *ngFor="let item of ahorros">
       <ion-card-content style="text-align: center">
@@ -6,9 +11,4 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
-  <ion-card>
-    <ion-card-content style="text-align: center">
-      <span class="izq">Total: </span><span class="der">${{totalS}}</span> 
-    </ion-card-content>
-  </ion-card>
 </ion-content>
