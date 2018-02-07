@@ -25,8 +25,10 @@ import { Camera } from '@ionic-native/camera';
 
 import { SQLite } from '@ionic-native/sqlite';
 import { DatabaseServiceProvider } from '../providers/database-service/database-service';
+import { HttpModule } from '@angular/http';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { Geolocation } from '@ionic-native/geolocation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
     NgxChartsModule,
     IonicModule.forRoot(MyApp, {
@@ -82,6 +85,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     StatusBar,
     Camera,
+    Geolocation,
     SQLite,
     SplashScreen,
     Toast,
