@@ -50,7 +50,6 @@ export class TabAhorrosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabAhorrosPage');
-    
   }
 
 }

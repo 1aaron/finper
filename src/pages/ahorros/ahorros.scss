@@ -1,18 +1,12 @@
 page-ahorros {
-    .tabla{
+    .lista {
         width: 100%;
-        height: 30%;
-        background-image: url('../assets/imgs/tabla.png');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+        height: 50%;
     }
-    .grafica{
-        width: 100%;
-        height: 70%;
-        background-image: url('../assets/imgs/grafica.png');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+    .izq{
+        float: left;
+    }
+    .der{
+        float: right;
     }
 }

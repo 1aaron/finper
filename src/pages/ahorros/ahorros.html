@@ -12,8 +12,18 @@
 
 </ion-header>
 
-
-<ion-content padding>
-  <div class="tabla"></div>
-  <div class="grafica"></div>  
+<ion-content>
+  <ion-list class="lista">
+    <ion-card ion-item *ngFor="let item of ahorros">
+      <ion-card-content style="text-align: center">
+        <span class="izq">semana: {{item.semana}}</span><span class="der"> ${{item.total}}</span> 
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ngx-charts-pie-chart
+    [view]="view"
+    [results]="data">
+  </ngx-charts-pie-chart>
+  <!--div class="tabla"></div>
+  <div class="grafica"></div-->  
 </ion-content>

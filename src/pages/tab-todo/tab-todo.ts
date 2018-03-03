@@ -24,7 +24,7 @@ export class TabTodoPage {
   totalS = "0";
   data: any[] = [];
   
-  view = [400,300];
+  view = [window.screen.width,window.screen.height / 3];
   
 
   inicializarDatos(){
